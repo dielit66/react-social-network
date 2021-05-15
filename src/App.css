@@ -1,7 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: black !important;
 }
 .app-wrapper {
   display: grid;
@@ -13,26 +20,4 @@
   grid-gap: 10px;
   width: 1300px;
   margin: 0 auto;
-}
-
-.header {
-  grid-area: header;
-}
-
-.header_logo {
-  margin: 17px 0px 0px 10px;
-}
-
-.nav {
-  grid-area: nav;
-  background-color: rgba(220, 220, 220, 0.3);
-}
-
-.content {
-  grid-area: content;
-}
-
-.content_background {
-  height: 250px;
-  width: 100%;
 }
