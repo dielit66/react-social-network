@@ -1,5 +1,6 @@
 import React from "react";
 import "./Profile.css";
+import MyPosts from "./MyPosts/MyPosts";
 
 const Profile = () => {
   return (
@@ -10,12 +11,7 @@ const Profile = () => {
         alt="background_img"
       />
       <div>ava+desc</div>
-      <div>
-        My post
-        <div>New post</div>
-        <div>post1</div>
-        <div>post2</div>
-      </div>
+      <MyPosts />
     </div>
   );
 };
