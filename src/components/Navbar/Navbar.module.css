@@ -23,3 +23,7 @@
 .nav_item__settings {
   margin-top: 50px;
 }
+
+a.active {
+  background-color: rgba(128, 128, 128, 0.2);
+}
