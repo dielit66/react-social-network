@@ -1,0 +1,11 @@
+.profileAvatar {
+  border-radius: 50%;
+  width: 250px;
+  margin-top: -140px;
+  margin-left: 50px;
+  border: 5px solid white;
+}
+
+.profileInfo {
+  font-family: "Poppins", sans-serif;
+}
