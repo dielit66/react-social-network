@@ -1,12 +1,12 @@
 import React from "react";
-import "./Profile.css";
+import styles from "./Profile.module.css";
 import MyPosts from "./MyPosts/MyPosts";
 
 const Profile = () => {
   return (
-    <div className="content">
+    <div className={styles.content}>
       <img
-        className="content_background"
+        className={styles.content_background}
         src="https://i.pinimg.com/originals/69/bb/3b/69bb3bb7e60ae6a7c1665cfc751730be.jpg"
         alt="background_img"
       />
