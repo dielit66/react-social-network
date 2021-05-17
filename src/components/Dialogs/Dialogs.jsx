@@ -14,30 +14,48 @@ const Message = (props) => {
   return <div className={styles.message}>{props.text}</div>;
 };
 
-let dialogsData = [
-  { id: 1, name: "Elon" },
-  { id: 2, name: "Volodya" },
-  { id: 3, name: "Lisiy" },
-  { id: 4, name: "Drake" },
-  { id: 5, name: "Taylor" },
-  { id: 6, name: "Kanye" },
-];
-
-const Dialogs = () => {
+const Dialogs = (props) => {
   return (
     <div className={styles.content}>
       <div className={styles.dialogs}>
-        <DialogItem name={dialogsData[0].name} id={dialogsData[0].id} />
-        <DialogItem name={dialogsData[1].name} id={dialogsData[1].id} />
-        <DialogItem name={dialogsData[2].name} id={dialogsData[2].id} />
-        <DialogItem name={"Drake"} id={"4"} />
-        <DialogItem name={"Taylor"} id={"5"} />
-        <DialogItem name={"Kanye"} id={"6"} />
+        <DialogItem
+          name={props.dialogsData[0].name}
+          id={props.dialogsData[0].id}
+        />
+        <DialogItem
+          name={props.dialogsData[1].name}
+          id={props.dialogsData[1].id}
+        />
+        <DialogItem
+          name={props.dialogsData[2].name}
+          id={props.dialogsData[2].id}
+        />
+        <DialogItem
+          name={props.dialogsData[3].name}
+          id={props.dialogsData[3].id}
+        />
+        <DialogItem
+          name={props.dialogsData[4].name}
+          id={props.dialogsData[4].id}
+        />
+        <DialogItem
+          name={props.dialogsData[5].name}
+          id={props.dialogsData[5].id}
+        />
       </div>
       <div className={styles.messages}>
-        <Message text={"Hey!"} />
-        <Message text={"How're you?"} />
-        <Message text={"XD"} />
+        <Message
+          text={props.messagesData[0].text}
+          id={props.messagesData[0].id}
+        />
+        <Message
+          text={props.messagesData[1].text}
+          id={props.messagesData[1].id}
+        />
+        <Message
+          text={props.messagesData[2].text}
+          id={props.messagesData[2].id}
+        />
       </div>
     </div>
   );
