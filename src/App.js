@@ -18,14 +18,16 @@ function App(props) {
             path="/dialogs"
             component={() => (
               <Dialogs
-                dialogsData={props.dialogsData}
-                messagesData={props.messagesData}
+                dialogsData={props.state.dialogsPage.dialogsData}
+                messagesData={props.state.dialogsPage.messagesData}
               />
             )}
           />
           <Route
             path="/profile"
-            component={() => <Profile postData={props.postData} />}
+            component={() => (
+              <Profile postData={props.state.profilePage.postData} />
+            )}
           />
         </div>
       </div>
