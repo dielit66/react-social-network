@@ -15,47 +15,27 @@ const Message = (props) => {
 };
 
 const Dialogs = (props) => {
+  let newMessageElement = React.createRef();
+  let sendMessage = () => {
+    let text = newMessageElement.current.value;
+    alert(text);
+  };
+
+  let dialogsElements = props.dialogsData.map((dialog) => (
+    <DialogItem name={dialog.name} id={dialog.id} />
+  ));
+
+  let messagesElements = props.messagesData.map((message) => (
+    <Message text={message.text} id={message.id} />
+  ));
+
   return (
     <div className={styles.content}>
-      <div className={styles.dialogs}>
-        <DialogItem
-          name={props.dialogsData[0].name}
-          id={props.dialogsData[0].id}
-        />
-        <DialogItem
-          name={props.dialogsData[1].name}
-          id={props.dialogsData[1].id}
-        />
-        <DialogItem
-          name={props.dialogsData[2].name}
-          id={props.dialogsData[2].id}
-        />
-        <DialogItem
-          name={props.dialogsData[3].name}
-          id={props.dialogsData[3].id}
-        />
-        <DialogItem
-          name={props.dialogsData[4].name}
-          id={props.dialogsData[4].id}
-        />
-        <DialogItem
-          name={props.dialogsData[5].name}
-          id={props.dialogsData[5].id}
-        />
-      </div>
+      <div className={styles.dialogs}>{dialogsElements}</div>
       <div className={styles.messages}>
-        <Message
-          text={props.messagesData[0].text}
-          id={props.messagesData[0].id}
-        />
-        <Message
-          text={props.messagesData[1].text}
-          id={props.messagesData[1].id}
-        />
-        <Message
-          text={props.messagesData[2].text}
-          id={props.messagesData[2].id}
-        />
+        {messagesElements}
+        <textarea ref={newMessageElement}></textarea>
+        <button onClick={sendMessage}>Отправить</button>
       </div>
     </div>
   );
