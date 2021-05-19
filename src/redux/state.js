@@ -23,5 +23,13 @@ let state = {
     ],
   },
 };
+export let addNewPost = (postText) => {
+  let newPostData = {
+    id: 5,
+    message: postText,
+    likesCounter: 0,
+  };
+  state.profilePage.postData.push(newPostData);
+};
 
 export default state;
