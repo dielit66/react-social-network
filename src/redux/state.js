@@ -1,3 +1,7 @@
+const ADD_POST = "ADD-POST";
+
+const UPDATE_NEW_MESSAGE_TEXT = "UPDATE_NEW_MESSAGE_TEXT";
+const SEND_MESSAGE = "SEND_MESSAGE";
 let store = {
   _state: {
     profilePage: {
@@ -19,31 +23,46 @@ let store = {
       ],
       messagesData: [
         { text: "Hey!", id: 1 },
-        { text: "How're you?", id: 1 },
-        { text: "XD", id: 1 },
+        { text: "How're you?", id: 2 },
+        { text: "XD", id: 3 },
       ],
+      newMessageText: "",
     },
   },
   getState() {
     return this._state;
   },
-  _rerenderEntireTree() {
+  subscribe(observer) {
+    this._callSubscriber = observer;
+  },
+  _callSubscriber() {
     console.log("state has been changed");
   },
-  addNewPost(postText) {
-    debugger;
-    let newPostData = {
-      id: 5,
-      message: postText,
-      likesCounter: 0,
-    };
-    this._state.profilePage.postData.push(newPostData);
-    this._rerenderEntireTree(this._state);
-  },
-  subscribe(observer) {
-    this._rerenderEntireTree = observer;
+  dispatch(action) {
+    if (action.type === "ADD-POST") {
+      let newPostData = {
+        id: 5,
+        message: action.postText,
+        likesCounter: 0,
+      };
+      this._state.profilePage.postData.push(newPostData);
+      this._callSubscriber(this._state);
+    } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
+      this._state.dialogsPage.newMessageText = action.text;
+      this._callSubscriber(this._state);
+    } else if (action.type === SEND_MESSAGE) {
+      let text = this._state.dialogsPage.newMessageText;
+      this._state.dialogsPage.newMessageText = "";
+      this._state.dialogsPage.messagesData.push({ text: text, id: 4 });
+      this._callSubscriber(this._state);
+    }
   },
 };
 
+export const sendMessageCreator = () => ({ type: SEND_MESSAGE });
+export const updateNewMessageTextCreator = (text) => ({
+  type: UPDATE_NEW_MESSAGE_TEXT,
+  text: text,
+});
 export default store;
 window.store = store;

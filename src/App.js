@@ -5,7 +5,6 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
 import { Route } from "react-router-dom";
-import { addNewPost } from "./redux/state";
 
 function App(props) {
   return (
@@ -16,19 +15,14 @@ function App(props) {
       <div className="app-wrapper-content">
         <Route
           path="/dialogs"
-          component={() => (
-            <Dialogs
-              dialogsData={props.state.dialogsPage.dialogsData}
-              messagesData={props.state.dialogsPage.messagesData}
-            />
-          )}
+          component={() => <Dialogs store={props.store} />}
         />
         <Route
           path="/profile"
           component={() => (
             <Profile
               postData={props.state.profilePage.postData}
-              addNewPost={props.addNewPost}
+              dispatch={props.dispatch}
             />
           )}
         />

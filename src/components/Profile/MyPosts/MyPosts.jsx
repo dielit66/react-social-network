@@ -5,7 +5,7 @@ const MyPosts = (props) => {
   let newPostElement = React.createRef();
   let addPost = () => {
     let text = newPostElement.current.value;
-    props.addNewPost(text);
+    props.dispatch({ type: "ADD-POST", postText: text });
   };
 
   let postElements = props.postData.map((post) => (
